@@ -10,7 +10,7 @@ name = "chat"
 dynamic = ["version"]
 description = "Secure Chat"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: Apache Software License",
@@ -67,7 +67,7 @@ filterwarnings = []
 
 [tool.mypy]
 exclude = [".venv"]
-python_version = "3.12"
+python_version = "3.10"
 strict = true
 pretty = true
 
