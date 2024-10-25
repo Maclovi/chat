@@ -10,8 +10,8 @@ if TYPE_CHECKING:
 
 
 @pytest.mark.container
-async def test_container(container: "AsyncContainer") -> None:
-    async with container() as c_request:
+async def test_container(acontainer: "AsyncContainer") -> None:
+    async with acontainer() as c_request:
         assert await c_request.get(AsyncEngine) is not None
         assert await c_request.get(UoWProtocol) is await c_request.get(
             AsyncSession
