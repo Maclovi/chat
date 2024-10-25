@@ -18,25 +18,20 @@ jobs:
           version: "latest"
 
       - name: Install Dependencies and library
-        shell: bash
         run: |
           set -ux
-          uv pip install --system .[lint]
+          uv pip install --system .[lint_full]
 
       - name: Run ruff
-        shell: bash
         run: ruff check
 
       - name: Run mypy
-        shell: bash
-        run: mypy
+        run: mypy src
 
       - name: Run bandit
-        shell: bash
         run: bandit -c pyproject.toml -r chat
 
       - name: Run Semgrep
-        shell: bash
         run: semgrep scan --config auto --error
         
   test-basic:
