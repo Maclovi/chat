@@ -39,16 +39,13 @@ lint = [
     "chat[types]",
     "ruff",
 ]
-lint_optional = [
+lint_extra = [
     "bandit",
     "semgrep",
     "codespell",
 ]
-lint_full = [
-    "chat[lint,lint_optional]",
-]
-dev = ["chat[test,lint_full]"]
-devmin = ["chat[test,lint_optional]"]
+devmin = ["chat[test,lint]"]
+dev = ["chat[test,lint,lint_extra]"]
 
 [project.urls]
 Homepage = "https://github.com/Maclovi/chat"
@@ -92,7 +89,7 @@ disallow_any_unimported = false
 [tool.ruff]
 src = ["src"]
 include = ["src/**.py", "tests/**.py"]
-target-version="py310"
+target-version = "py310"
 line-length = 79
 fix = true
 
@@ -102,6 +99,7 @@ select = [
     "E",     # pycodestyle errors     https://docs.astral.sh/ruff/rules/#error-e
     "W",     # pycodestyle warnings   https://docs.astral.sh/ruff/rules/#warning-w
     "F",     # pyflakes               https://docs.astral.sh/ruff/rules/#pyflakes-f
+    "S",     # flake8-bandit          https://docs.astral.sh/ruff/rules/#flake8-bandit-s
     "B",     # flake8-bugbear         https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
     "Q",     # flake8-quotes          https://docs.astral.sh/ruff/rules/#flake8-quotes-q
     "N",     # pep8-naming            https://docs.astral.sh/ruff/rules/#pep8-naming-n
